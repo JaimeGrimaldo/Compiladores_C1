@@ -1,0 +1,31 @@
+procedimiento iniciar(){
+    variable num = 10
+        si ( num == 10 ); 
+            hasta ( i < 5 );
+                resSuma = suma(i)
+                imprimir("El numero es: " + resSuma )
+}
+
+procedimiento suma(a) {
+    regresa a + 5
+}
+
+S ->  F FM  
+F -> procedimiento
+FM -> iniciar() BC 
+BC -> { E }
+E -> IF | FOR | PRINT | ASG
+IF -> si ( EIF ); E 
+EIF -> ID O INT 
+ID -> L CO
+L -> a..z | A..Z
+CO -> L CO
+O -> >|<|<=|>=|==
+INT -> D R
+D -> 0..9
+R -> D R
+FOR -> hasta ( EFOR ); E
+EFOR -> ID < INT
+PRINT -> imprimir ("ID" CON | ID | "ID" )
+CON -> + ID CON | + ID
+ASG -> variable ID = ID(L|INT|ID|VACIO) |  variable ID = ID|INT 
